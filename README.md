@@ -220,29 +220,6 @@ Além disso, o script também gera:
 
 ---
 
-
-# 📊 Resultados analisados
-
-As análises incluem:
-
-### ✔ Impacto do número de threads (OpenMP)
-
-### ✔ Efeito do scheduler e chunk
-
-### ✔ Speedup vs. baseline sequencial
-
-### ✔ Throughput (pontos/s)
-
-### ✔ Comparação “CPU paralela vs. GPU”
-
-### ✔ Custo de transferência H2D/D2H
-
-### ✔ Tempo de kernel CUDA por configuração
-
-### ✔ Validação de SSE entre versões
-
----
-
 # 🧰 Dependências
 
 ### **Para compilação**
