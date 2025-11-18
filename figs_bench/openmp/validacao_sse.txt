@@ -1,0 +1,169 @@
+VALIDACAO (SSE FINAL)
+
+Tolerancia usada: 1.000000e-09
+
+
+(1) Estabilidade entre repeticoes — seq
+
+  ('g', 'seq'): min=333373.975493 max=333373.975493 | ok=True
+  ('m', 'seq'): min=33447.299806 max=33447.299806 | ok=True
+  ('p', 'seq'): min=3307.377030 max=3307.377030 | ok=True
+
+(1) Estabilidade entre repeticoes — omp
+
+  ('g', 'omp', np.float64(1.0), 'dynamic', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'dynamic', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'dynamic', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'dynamic', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'dynamic', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'static', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'static', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'static', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'static', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(1.0), 'static', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'dynamic', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'dynamic', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'dynamic', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'dynamic', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'dynamic', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'static', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'static', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'static', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'static', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(2.0), 'static', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'dynamic', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'dynamic', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'dynamic', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'dynamic', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'dynamic', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'static', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'static', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'static', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'static', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(4.0), 'static', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'dynamic', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'dynamic', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'dynamic', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'dynamic', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'dynamic', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'static', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'static', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'static', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'static', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(8.0), 'static', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'dynamic', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'dynamic', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'dynamic', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'dynamic', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'dynamic', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'static', '1.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'static', '1024.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'static', '256.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'static', '64.0'): min=333373.975493 max=333373.975493 | ok=True
+  ('g', 'omp', np.float64(16.0), 'static', 'NA'): min=333373.975493 max=333373.975493 | ok=True
+  ('m', 'omp', np.float64(1.0), 'dynamic', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'dynamic', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'dynamic', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'dynamic', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'dynamic', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'static', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'static', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'static', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'static', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(1.0), 'static', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'dynamic', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'dynamic', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'dynamic', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'dynamic', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'dynamic', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'static', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'static', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'static', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'static', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(2.0), 'static', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'dynamic', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'dynamic', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'dynamic', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'dynamic', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'dynamic', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'static', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'static', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'static', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'static', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(4.0), 'static', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'dynamic', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'dynamic', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'dynamic', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'dynamic', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'dynamic', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'static', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'static', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'static', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'static', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(8.0), 'static', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'dynamic', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'dynamic', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'dynamic', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'dynamic', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'dynamic', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'static', '1.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'static', '1024.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'static', '256.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'static', '64.0'): min=33447.299806 max=33447.299806 | ok=True
+  ('m', 'omp', np.float64(16.0), 'static', 'NA'): min=33447.299806 max=33447.299806 | ok=True
+  ('p', 'omp', np.float64(1.0), 'dynamic', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'dynamic', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'dynamic', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'dynamic', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'dynamic', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'static', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'static', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'static', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'static', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(1.0), 'static', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'dynamic', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'dynamic', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'dynamic', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'dynamic', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'dynamic', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'static', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'static', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'static', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'static', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(2.0), 'static', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'dynamic', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'dynamic', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'dynamic', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'dynamic', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'dynamic', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'static', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'static', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'static', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'static', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(4.0), 'static', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'dynamic', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'dynamic', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'dynamic', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'dynamic', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'dynamic', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'static', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'static', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'static', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'static', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(8.0), 'static', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'dynamic', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'dynamic', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'dynamic', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'dynamic', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'dynamic', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'static', '1.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'static', '1024.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'static', '256.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'static', '64.0'): min=3307.377030 max=3307.377030 | ok=True
+  ('p', 'omp', np.float64(16.0), 'static', 'NA'): min=3307.377030 max=3307.377030 | ok=True
+
+(2) Igualdade seq vs omp (por dataset, usando medianas de SSE final)
+
+  dataset=g: seq_med=333373.975493 omp_med=333373.975493 | |diff|=0.000e+00 | ok=True
+  dataset=m: seq_med=33447.299806 omp_med=33447.299806 | |diff|=0.000e+00 | ok=True
+  dataset=p: seq_med=3307.377030 omp_med=3307.377030 | |diff|=0.000e+00 | ok=True
