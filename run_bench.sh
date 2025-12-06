@@ -246,7 +246,7 @@ parse_line_mpi() {
     }
     /Tempo de comunicação/ {
       for (i=1; i<=NF; i++) {
-        if ($i ~ /^Tempo/) { comm=$(i+5) }  # "Tempo de comunicação (Allreduce): YYY ms"
+        if ($i ~ /^Tempo/) { comm=$(i+4) }  # "Tempo de comunicação (Allreduce): YYY ms"
       }
       gsub(/ms/,"",comm); gsub(/\r/,"",comm)
     }
