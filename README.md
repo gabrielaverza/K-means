@@ -238,18 +238,6 @@ figs_bench/
     └── comparacao_seq_omp_cuda_mpi.csv
 ```
 
-### **MPI – gráficos incluídos**
-
-* **Tempo total vs processos** (Strong scaling)
-* **Speedup vs sequencial**
-* **Tempo total × comunicação (Allreduce) × computação**
-
-Esses gráficos atendem exatamente aos requisitos do enunciado:
-
-✔ Strong scaling
-✔ Tempo de comunicação
-✔ Speedup vs serial e vs OpenMP
-
 ---
 
 # 🧰 Dependências
