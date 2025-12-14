@@ -195,7 +195,7 @@ Incluindo:
 
 # 3️⃣ **Gerar gráficos e tabelas**
 
-Novo formato:
+Comandos:
 
 ```
 python3 analisar_bench.py <arquivo_csv> --mpi
@@ -204,10 +204,10 @@ python3 analisar_bench.py <arquivo_csv> --cuda
 python3 analisar_bench.py <arquivo_csv> --all
 ```
 
-### 🔸 Exemplo: comparar **naive × MPI**
+### 🔸 Exemplo: comparar **naive x OpenMP x MPI**
 
 ```bash
-python3 analisar_bench.py resultados_mpi_YYYYMMDD_HHMMSS.csv --mpi
+python3 analisar_bench.py resultados_mpi_YYYYMMDD_HHMMSS.csv --omp --mpi
 ```
 
 ### 🔸 Rodar tudo
