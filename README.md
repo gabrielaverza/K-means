@@ -260,12 +260,6 @@ Esses gráficos atendem exatamente aos requisitos do enunciado:
 * NVCC (para CUDA)
 * MPI (OpenMPI ou MPICH)
 
-Compilação manual:
-
-```bash
-mpicc -O2 -std=c99 kmeans_1d_mpi.c -o kmeans_1d_mpi -lm
-```
-
 ### Ambiente Python:
 
 ```
