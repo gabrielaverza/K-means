@@ -261,31 +261,34 @@ def make_validation_report(df: pd.DataFrame, outpath: str):
 
 def prepare_cuda_summary(df: pd.DataFrame, df_med: pd.DataFrame, base: pd.DataFrame) -> pd.DataFrame:
     """
-    Monta tabela de medianas CUDA com:
-      - block, grid
-      - tempos: h2d_ms, kernel_ms, d2h_ms, total_ms
-      - throughput_pts_s (pontos/s)
-      - speedup_seq (vs sequencial)
+    Monta tabela CUDA usando medianas por (dataset, block) calculadas a partir das reps (rep > 0),
+    para ter h2d/kernel/d2h/total consistentes.
     """
-    df_cuda = df_med[df_med["modo"] == "cuda"].copy()
-    if df_cuda.empty:
-        return df_cuda
+    # pega só execuções reais (rep > 0), porque rep=0 no CSV CUDA só tem total_ms
+    df_cuda_raw = df[(df["modo"] == "cuda") & (df["rep"] > 0)].copy()
+    if df_cuda_raw.empty:
+        return df_cuda_raw
 
-    df_cuda = df_cuda.merge(base, on="dataset", how="left")  # adiciona tempo_serial_ms
+    # medianas por dataset+block para TODAS as colunas numéricas (inclui h2d_ms, kernel_ms, d2h_ms, total_ms)
+    df_cuda = (
+        df_cuda_raw
+        .groupby(["dataset", "block"], as_index=False)
+        .median(numeric_only=True)
+    )
+
+    # junta baseline seq e calcula métricas derivadas
+    df_cuda = df_cuda.merge(base, on="dataset", how="left")
     df_cuda["N"] = df_cuda["dataset"].map(DATASET_N).astype(float)
     df_cuda["grid"] = np.ceil(df_cuda["N"] / df_cuda["block"])
 
-    # Throughput = N / (total_ms/1000)
     df_cuda["throughput_pts_s"] = np.where(
         df_cuda["total_ms"] > 0,
         df_cuda["N"] * 1000.0 / df_cuda["total_ms"],
         np.nan,
     )
-
     df_cuda["speedup_seq"] = df_cuda["tempo_serial_ms"] / df_cuda["total_ms"]
 
     return df_cuda
-
 
 def plot_cuda_times(df_cuda: pd.DataFrame, dataset: str, outdir: str):
     """Gráfico de tempos CUDA (H2D, Kernel, D2H, Total) vs block."""

@@ -421,8 +421,6 @@ if (( DO_CUDA )); then
         totals+=("$total_ms")
       done
       med_total=$(printf "%s\n" "${totals[@]}" | median)
-      append_csv_cuda_median "$ds" "$block" "$med_total"
-      echo "   [cuda ${ds}] block=${block} mediana total(ms)=${med_total}"
     done
   done
 fi

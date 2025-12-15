@@ -1,4 +1,4 @@
-# 📘 **K-means 1D — Versões Sequencial, OpenMP, CUDA e MPI**
+# 📘 **K-means — Versões Sequencial, OpenMP, CUDA e MPI**
 
 Este projeto implementa o algoritmo **K-means 1D** em múltiplas arquiteturas de paralelização:
 
@@ -147,7 +147,6 @@ O script unificado aceita flags:
 * `--omp`
 * `--cuda`
 * `--mpi`
-* `--all`
 
 ### 🔸 Somente Sequencial + MPI
 
@@ -170,12 +169,12 @@ O script unificado aceita flags:
 ### 🔸 Todas as versões (seq + omp + cuda + mpi)
 
 ```bash
-./run_bench.sh --all
+./run_bench.sh --omp --cuda --mpi
 ```
 
 ### 📌 Saída do script
 
-Gera arquivos no formato:
+Gera arquivos no formato (exemplos):
 
 ```
 resultados_omp_mpi_YYYYMMDD_HHMMSS.csv
@@ -196,7 +195,7 @@ Incluindo:
 
 # 3️⃣ **Gerar gráficos e tabelas**
 
-Novo formato:
+Comandos:
 
 ```
 python3 analisar_bench.py <arquivo_csv> --mpi
@@ -205,10 +204,10 @@ python3 analisar_bench.py <arquivo_csv> --cuda
 python3 analisar_bench.py <arquivo_csv> --all
 ```
 
-### 🔸 Exemplo: comparar **naive × MPI**
+### 🔸 Exemplo: comparar **naive x OpenMP x MPI**
 
 ```bash
-python3 analisar_bench.py resultados_mpi_YYYYMMDD_HHMMSS.csv --mpi
+python3 analisar_bench.py resultados_mpi_YYYYMMDD_HHMMSS.csv --omp --mpi
 ```
 
 ### 🔸 Rodar tudo
@@ -232,24 +231,12 @@ figs_bench/
 │   ├── m_cuda_*.png
 │   └── g_cuda_*.png
 ├── mpi/
-│   ├── p_mpi_tempo_vs_procs.png
-│   ├── p_mpi_speedup_vs_procs.png
-│   └── p_mpi_breakdown_vs_procs.png
+│   ├── p_mpi_*.png
+│   ├── p_mpi_*.png
+│   └── p_mpi_*.png
 └── global/
     └── comparacao_seq_omp_cuda_mpi.csv
 ```
-
-### **MPI – gráficos incluídos**
-
-* **Tempo total vs processos** (Strong scaling)
-* **Speedup vs sequencial**
-* **Tempo total × comunicação (Allreduce) × computação**
-
-Esses gráficos atendem exatamente aos requisitos do enunciado:
-
-✔ Strong scaling
-✔ Tempo de comunicação
-✔ Speedup vs serial e vs OpenMP
 
 ---
 
@@ -260,12 +247,6 @@ Esses gráficos atendem exatamente aos requisitos do enunciado:
 * GCC com OpenMP
 * NVCC (para CUDA)
 * MPI (OpenMPI ou MPICH)
-
-Compilação manual:
-
-```bash
-mpicc -O2 -std=c99 kmeans_1d_mpi.c -o kmeans_1d_mpi -lm
-```
 
 ### Ambiente Python:
 
