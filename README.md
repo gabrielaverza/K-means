@@ -1,4 +1,4 @@
-# 📘 **K-means — Versões Sequencial, OpenMP, CUDA e MPI**
+# 📘 **K-means - Sequencial, OpenMP, CUDA e MPI**
 
 Este projeto implementa o algoritmo **K-means 1D** em múltiplas arquiteturas de paralelização:
 
