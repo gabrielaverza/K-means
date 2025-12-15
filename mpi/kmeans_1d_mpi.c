@@ -1,8 +1,8 @@
 /* kmeans_1d_mpi.c
    Etapa 3 — MPI
-   - Distribui X entre P processos; centróides C são globais a cada iteração
-   - Itera: broadcast inicial de C -> assignment local → reduções globais
-   - Mede tempo total e tempo de comunicação (Allreduce)
+   - distribui X entre P processos; centróides C são globais a cada iteração
+   - itera: broadcast inicial de C -> assignment local -> reduções globais
+   - mede tempo total e tempo de comunicação (Allreduce)
 */
 
 #include <stdio.h>
@@ -86,29 +86,8 @@ static void decompose_1d(int N, int P, int *counts, int *displs){
     }
 }
 
-/* ======================================================================= */
-/*  [Função 1] ASSIGNMENT LOCAL em cada processo (sem chamadas MPI)        */
-/* ======================================================================= */
-/*
-   assignment_step_1d_mpi:
-   - Recebe:
-       X_local   : vetor de pontos (apenas o bloco local de cada rank)
-       local_N   : número de pontos locais
-       C         : centróides globais (iguais em todos os processos)
-       K         : número de clusters
-       assign_local : vetor de assignments locais (saida)
-       sum_local    : somatório local de pontos por cluster (tamanho K)
-       cnt_local    : contagem local de pontos por cluster (tamanho K)
-   - Faz:
-       * zera sum_local e cnt_local
-       * para cada ponto local:
-           - encontra o centróide mais próximo
-           - registra assign_local[i]
-           - acumula SSE local
-           - acumula sum_local[cluster] e cnt_local[cluster]
-   - Retorna:
-       * SSE_local (soma dos erros quadráticos só dos pontos deste rank)
-*/
+/* ---------- k-means 1D ---------- */
+/* assignment: pontos dividios entre os processos, assigment somente nos dados locais e calcula sse parcial */
 static double assignment_step_1d_mpi(const double *X_local, int local_N, const double *C, int K, int *assign_local, double *sum_local, int *cnt_local){
     /* zera acumuladores locais */
     for(int c=0; c<K; c++){
@@ -133,32 +112,7 @@ static double assignment_step_1d_mpi(const double *X_local, int local_N, const d
     return sse_local;
 }
 
-/* ======================================================================= */
-/*  [Função 2] REDUÇÕES GLOBAIS + UPDATE dos centróides (C)                */
-/* ======================================================================= */
-/*
-   update_step_1d_mpi:
-   - Recebe:
-       C        : centróides (serão atualizados em TODOS os processos)
-       K        : número de clusters
-       X0       : primeiro ponto global (para tratar cluster vazio)
-       sse_local: SSE local deste rank
-       sse_global: ponteiro para SSE global (válido no rank 0)
-       sum_local, cnt_local: vetores locais (tamanho K)
-       rank     : rank deste processo
-       comm     : comunicador MPI
-       comm_time_accum:
-                 acumulador de tempo de comunicação (será incrementado
-                 com o custo dos MPI_Allreduce)
-
-   - Faz:
-       * MPI_Reduce de sse_local -> sse_global no rank 0
-       * MPI_Allreduce de sum_local -> sum_global (somatório global por cluster)
-       * MPI_Allreduce de cnt_local -> cnt_global (contagem global por cluster)
-       * ATUALIZA C EM TODOS OS PROCESSOS com base em sum_global/cnt_global
-         (clusters vazios recebem X0, replicando o comportamento do naive)
-       * acumula o tempo gasto nos Allreduce em *comm_time_accum
-*/
+/* reducao e update: usa MPI_Reduce para o sse e MPI_Allreduce para soma e contagem por cluster */
 static void update_step_1d_mpi(double *C, int K, double X0, double sse_local, double *sse_global, double *sum_local, int *cnt_local, int rank, MPI_Comm comm, double *comm_time_accum){
     MPI_Reduce(&sse_local, sse_global, 1, MPI_DOUBLE, MPI_SUM, 0, comm);
 
@@ -189,26 +143,6 @@ static void update_step_1d_mpi(double *C, int K, double X0, double sse_local, do
     free(cnt_global);
 }
 
-/* ======================================================================= */
-/*  [Função 3] Laço principal do K-means 1D em MPI                         */
-/* ======================================================================= */
-/*
-   kmeans_1d_mpi:
-   - Lê X_global e C (apenas rank 0; vetores e N,K já devem estar definidos).
-   - Distribui X_global entre os processos (Scatterv).
-   - Faz:
-       * broadcast inicial de C para todos os processos
-       * laço de iterações:
-           (1) assignment_step_1d_mpi  -> ASSIGNMENT LOCAL em cada rank
-           (2) update_step_1d_mpi      -> REDUÇÕES GLOBAIS + UPDATE de C
-           (3) rank 0 decide parada    -> broadcast de flag stop
-       * coleta final dos assignments (Gatherv) no rank 0
-
-   - Mede:
-       * número de iterações
-       * SSE final
-       * tempo total de comunicação (Allreduce)
-*/
 static void kmeans_1d_mpi(double *X_global, double *C, int *assign_global, int N, int K, int max_iter, double eps, int rank, int nprocs, int *iters_out, double *sse_out, double *comm_time_out){
     MPI_Comm comm = MPI_COMM_WORLD;
 

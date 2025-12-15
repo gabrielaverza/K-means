@@ -218,12 +218,6 @@ parse_line_cuda() {
   '
 }
 
-# Parse da saída do MPI:
-# Espera linhas do tipo:
-#   Iterações: X
-#   SSE final: Y
-#   Tempo total (apenas K-means): Z ms
-#   Tempo de comunicação (Allreduce): W ms
 parse_line_mpi() {
   awk '
     /Itera/ {
@@ -308,12 +302,6 @@ append_csv_cuda_median() {
   echo "${dataset},cuda,NA,NA,NA,${block},0,NA,NA,NA,${median_total},NA,NA,NA,${median_total}" >> "$OUTCSV"
 }
 
-# Para MPI, usamos:
-#   modo=mpi
-#   threads = número de processos (P)
-#   time_ms = tempo total do K-means
-#   h2d_ms  = tempo de comunicação (Allreduce)
-#   kernel_ms = tempo de computação aproximado (total - comunicação)
 append_csv_mpi() {
   local dataset="$1" procs="$2" rep="$3"
   local iters="$4" sse="$5" total_ms="$6" comm_ms="$7"
